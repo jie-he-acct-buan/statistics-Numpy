@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Feb 10 21:29:52 2019
-
-@author: Jie
-"""
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -24,10 +17,10 @@ def ecdf(data):
     
 
 ##############################################################################
-df=pd.read_csv('F:/0 - PhD at UTD/2019 Spring/DataCamp/Statistical Thinking in Python (Part 2)/mlb_nohitters.csv')
+df=pd.read_csv('mlb_nohitters.csv')
 
 #################################################################################
-df=pd.read_csv('F:/0 - PhD at UTD/2019 Spring/DataCamp/Statistical Thinking in Python (Part 2)/female_literacy_fertility.csv')
+df=pd.read_csv('female_literacy_fertility.csv')
 illiteracy=100-df['female literacy'].values
 fertility=df['fertility'].values
 
@@ -88,7 +81,7 @@ plt.ylabel('sum of square of residuals')
 
 plt.show()
 ##############################################################################
-df=pd.read_csv('F:/0 - PhD at UTD/2019 Spring/DataCamp/Statistical Thinking in Python (Part 2)/anscombe.csv')
+df=pd.read_csv('anscombe.csv')
 x=df[1:]['0'].values.astype(np.float)
 y=df[1:]['0.1'].values.astype(np.float)
 
@@ -148,7 +141,7 @@ def draw_bs_reps(data, func, size=1):
 
     return bs_replicates
 #############################################################################
-df=pd.read_csv('F:/0 - PhD at UTD/2019 Spring/DataCamp/Statistical Thinking in Python (Part 2)/sheffield_weather_station.csv', error_bad_lines=False)
+df=pd.read_csv('sheffield_weather_station.csv', error_bad_lines=False)
 
 rainfall=np.array([  875.5,   648.2,   788.1,   940.3,   491.1,   743.5,   730.1,
          686.5,   878.8,   865.6,   654.9,   831.5,   798.1,   681.8,
@@ -543,8 +536,8 @@ bs_replicates = bs_reps_control - bs_reps_treated
 p = np.sum(bs_replicates >= np.mean(control) - np.mean(treated)) / len(bs_replicates)
 print('p-value =', p)
 ###############################################################################
-df75=pd.read_csv('F:/0 - PhD at UTD/2019 Spring/DataCamp/Statistical Thinking in Python (Part 2)/finch_beaks_1975.csv')
-df12=pd.read_csv('F:/0 - PhD at UTD/2019 Spring/DataCamp/Statistical Thinking in Python (Part 2)/finch_beaks_2012.csv')
+df75=pd.read_csv('finch_beaks_1975.csv')
+df12=pd.read_csv('finch_beaks_2012.csv')
 
 df75['year']=1975
 df75=df75[['Beak depth, mm','year','species']]
@@ -625,8 +618,8 @@ p = np.sum(bs_diff_replicates >= mean_diff) / len(bs_diff_replicates)
 # Print p-value
 print('p =', p)
 ###############################################################################
-df75=pd.read_csv('F:/0 - PhD at UTD/2019 Spring/DataCamp/Statistical Thinking in Python (Part 2)/finch_beaks_1975.csv')
-df12=pd.read_csv('F:/0 - PhD at UTD/2019 Spring/DataCamp/Statistical Thinking in Python (Part 2)/finch_beaks_2012.csv')
+df75=pd.read_csv('finch_beaks_1975.csv')
+df12=pd.read_csv('finch_beaks_2012.csv')
 
 bl_1975=df75[df75['species']=='scandens']['Beak length, mm'].values
 bl_2012=df12[df12['species']=='scandens']['blength'].values
@@ -724,11 +717,11 @@ print('1975: mean ratio =', mean_ratio_1975,
 print('2012: mean ratio =', mean_ratio_2012,
       'conf int =', conf_int_2012)
 ###############################################################################
-df=pd.read_csv('F:/0 - PhD at UTD/2019 Spring/DataCamp/Statistical Thinking in Python (Part 2)/scandens_beak_depth_heredity.csv')
+df=pd.read_csv('scandens_beak_depth_heredity.csv')
 bd_parent_scandens=df['mid_parent'].values
 bd_offspring_scandens=df['mid_offspring'].values
 
-df=pd.read_csv('F:/0 - PhD at UTD/2019 Spring/DataCamp/Statistical Thinking in Python (Part 2)/fortis_beak_depth_heredity.csv')
+df=pd.read_csv('fortis_beak_depth_heredity.csv')
 df['mid_parent']=(df['Male BD']+df['Female BD'])/2
 bd_parent_fortis=df['mid_parent'].values
 bd_offspring_fortis=df['Mid-offspr'].values
